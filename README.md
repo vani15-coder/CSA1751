@@ -42,7 +42,7 @@ DFS IMPLEMENTATION
             dfs(graph, neighbor, visited, order)
 
     return order
-   A* Implementation 
+ A* IMPLEMENTATION
 
 
     mark node visited
@@ -51,17 +51,14 @@ DFS IMPLEMENTATION
         new_g = g + cost
         new_f = new_g + heuristic(neighbor)
         push (new_f, new_g, neighbor)
-Greedy Best First Search (GBFS)
+GREEDY BEST FIRST SEARCH IMPLEMENTATION
 
 
     mark node visited
 
     for each neighbor:
         push (h(neighbor), neighbor)
-Minimax Algorithm
-function minimax(node, depth, isMax):
-    if node is leaf:
-        return value
+MINMAX IMPLEMENTATION
 
     if isMax:
         best = -∞
@@ -73,10 +70,7 @@ function minimax(node, depth, isMax):
         for each child:
             best = min(best, minimax(child, depth+1, True))
         return best
-Alpha-Beta Pruning
-function alphabeta(node, depth, alpha, beta, isMax):
-    if node is leaf:
-        return value
+ALPHA BETA PRUNING IMPLEMENTATION
 
     if isMax:
         for each child:
@@ -90,22 +84,18 @@ function alphabeta(node, depth, alpha, beta, isMax):
             if beta <= alpha:
                 break
         return beta
-Decision Tree – Prediction Logic
-start at root node\
-while current node is not leaf:
-    evaluate condition
-    move to corresponding child
-
-return class label
-Entropy = 0
-for each class:
-    p = class_count / total
-    Entropy -= p * log2(p)
-
-Neural Network – Single Neuron
-z = (x1*w1 + x2*w2 + ... + xn*wn) + bias
+DESCISION TREE IMPLEMENTATION 
+```
+function predict(sample):
+    node = root
+    while node is not leaf:
+        if sample satisfies condition:
+            node = left_child
+        else:
+            node = right_child
+    return node.label
+```
+NEURAL NETWORK CORE LOGIC
+```
+z = Σ(xi * wi) + bias
 output = activation(z)
-output = step(w1*x1 + w2*x2 + bias)
-
-Single-layer perceptron fails for XOR
-
